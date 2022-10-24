@@ -20,6 +20,11 @@ model Example {
   updatedAt DateTime @updatedAt
 }
 
+model Snippet {
+  id String @id @default(cuid())
+  text String
+}
+
 // Necessary for Next auth
 model Account {
   id                String  @id @default(cuid())
