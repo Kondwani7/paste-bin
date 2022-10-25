@@ -1,10 +1,11 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useState } from "react";
 import { trpc } from "../utils/trpc";
 
 const Home: NextPage = (props) => {
-  //const hello = trpc.example.hello.useQuery({ text: "from tRPC" });
-
+  //const hello = trpc.example.hello.useQuery({ text: "from tRPC" })
+  const [snippet, setSnippet] = useState('');
   return (
     <>
       <Head>
@@ -13,6 +14,16 @@ const Home: NextPage = (props) => {
       </Head>
       <main className="container mx-auto flex flex-col items-center justify-center p-4">
         Paste bin clone
+        <p>
+          Paste a snippet of code to get a unique UUID to view any time
+        </p>
+        <textarea onChange={e => setSnippet(e.target.value)}>
+
+        </textarea>
+        {snippet}
+        <button>
+          save snippet
+        </button>
       </main>      
     </>
   );
